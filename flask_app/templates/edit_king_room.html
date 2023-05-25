@@ -1,0 +1,77 @@
+{% extends 'base.html' %} {% block content %}
+{%with error_messages = get_flashed_messages(category_filter=["room"])%}
+   {% if error_messages %}
+      <div class="alert alert-danger">
+         <ul class="ul_list">
+               {% for this_error in error_messages %}
+                  <li>{{this_error}}</li>
+               {% endfor %}
+         </ul>
+      </div>
+   {% endif %}
+{% endwith %}
+<head>
+   <link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename='css/individual_rooms.css') }}">
+</head>
+<div class=>
+   <div class="room_container">
+      <div class="room_img">
+         <figure> <img src="{{ url_for('static', filename='images/king_bed.jpg') }}"></figure>
+      </div>
+      <div class="div3">
+         <div class="row">
+            <div class="flex">
+               <div class="book_room">
+                  <div class="room_description">
+                     <h3 class="room_title">Luxe King Haven</h3>
+                     <span>Room Description</span>
+                     <p class="description_p">Welcome to our magnificent rooftop hotel king room, where regal comfort awaits you at the pinnacle of luxury. Step into a world of refined elegance as you enter this meticulously designed space, crafted to provide an exceptional stay above the bustling cityscape. The king room is adorned with tasteful decor and features a spacious layout that exudes sophistication. The centerpiece of the room is the luxurious king-size bed, adorned with premium linens and an array of plump pillows, promising a restful and rejuvenating sleep. The elegant design elements, from the stylish furnishings to the thoughtfully chosen artwork, create an ambiance of timeless charm and tranquility.</p>
+
+                     <p class="description_p"> The king room is equipped with modern amenities to enhance your stay. Stay connected with high-speed internet access, catch up on your favorite shows on the flat-screen TV, or simply unwind in the comfortable seating area. The en-suite bathroom is a sanctuary of relaxation, featuring sleek fixtures, a walk-in rain shower, and luxurious bath amenities. Immerse yourself in a moment of indulgence, whether refreshing after a long day of exploration or preparing for an evening of relaxation. As a guest of our rooftop hotel, you'll also have access to exclusive privileges, including a rooftop lounge and bar, where you can savor delightful cuisine and handcrafted cocktails while enjoying breathtaking views of the city. Experience the epitome of luxury and comfort in our rooftop hotel king room, where every detail is meticulously designed to create an unforgettable stay. </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="booking_ocline">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-5">
+               <div class="book_room">
+                  <h1>Book a Room Now</h1>
+                  <form action="/edit/{{reservation.room_name}}/{{reservation.id}}" class="book_now" method="post">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <span>Arrival</span>
+                           <img class="date_cua" src="{{ url_for('static', filename='images/date.png') }}">
+                           <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="arrival_date" value="{{reservation.arrival_date}}">
+                        </div>
+                        <div class="col-md-12">
+                           <span>Departure</span>
+                           <img class="date_cua" src="{{ url_for('static', filename='images/date.png') }}">
+                           <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="departure_date" value="{{reservation.departure_date}}">
+                        </div>
+                        <div class="col-md-12">
+                           <span>Number of Guests</span>
+                           <img class="date_cua" src="{{ url_for('static', filename='images/date.png') }}">
+                           <input class="online_book" placeholder="1 - 4" type="number" max="4" min="0"  name="number_of_people" value="{{reservation.number_of_people}}">
+                        </div>
+                        <input type="hidden" name="user_id" value="{{user_id}}">
+                        <input type="hidden" name="room_name" value="Luxe King Haven">
+                        <div class="col-md-12">
+                        {%if "user_id" in session %}
+                           <button type="submit" class="book_btn">Update Now</button>
+                        {%else%}
+                           <p class="text-white text"><a href="/login" class=" link-text">Log in</a> to book a room</p>
+                        {%endif%}
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

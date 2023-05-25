@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% block content %}
+{%with error_messages = get_flashed_messages(category_filter=["room"])%}
+   {% if error_messages %}
+      <div class="alert alert-danger">
+         <ul class="ul_list">
+               {% for this_error in error_messages %}
+                  <li>{{this_error}}</li>
+               {% endfor %}
+         </ul>
+      </div>
+   {% endif %}
+{% endwith %}
+<head>
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/individual_rooms.css') }}">
+</head>
+<div class=>
+   <div class="room_container">
+      <div class="room_img">
+         <figure> <img src="{{ url_for('static', filename='images/suite_3.png') }}" alt="suite_room"> </figure>
+      </div>
+      <div class="div3">
+         <div class="row">
+            <div class="flex">
+               <div class="book_room">
+                  <div class="room_description">
+                     <h3 class="room_title">The Royal Splendor </h3>
+                     <span>Room Description</span>
+                     <p class="description_p">Welcome to our stunning rooftop hotel suite, where luxury and elegance converge high above the cityscape. Step into a world of opulence as you enter this meticulously designed space, thoughtfully curated to provide an unforgettable experience. The suite boasts a spacious and exquisitely furnished living area, complete with floor-to-ceiling windows that offer breathtaking panoramic views of the surrounding skyline. Sink into the plush seating, adorned with sumptuous fabrics, and immerse yourself in the tranquility of this elevated sanctuary.</p>
+
+                     <p class="description_p"> Adjacent to the living area, a private bedroom awaits, featuring a luxurious king-size bed adorned with high-thread-count linens and an array of plump pillows, promising a restful and rejuvenating sleep. The design aesthetic is a harmonious blend of sophistication and comfort, with elegant furnishings and carefully selected artwork adorning the walls. The en-suite bathroom is a haven of relaxation, boasting modern fixtures, a spacious walk-in shower, and a deep soaking tub, providing the perfect setting to unwind and pamper yourself after a day of exploration.  </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>

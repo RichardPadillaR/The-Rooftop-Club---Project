@@ -1,0 +1,90 @@
+/* .background-image-div {
+background-image: url("./images/hotel.jpg");
+background-size: contain;
+height: 500px;
+} */
+
+body {
+    background-image: url("../images/lobby.jpg");
+    background-size: cover;
+    height: 500px;
+    }
+
+.form {
+    width:40%;
+}
+
+.page-container {
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div3 {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.flex {
+    display: flex 0 0 auto;
+
+}
+
+.text {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.row_div {
+    justify-content: center;
+}
+
+.link-text {
+    color: rgb(55, 255, 205);
+    text-decoration: underline;
+}
+
+.link-text:hover {
+    color: rgb(0, 162, 255);
+    font-size: 20px;
+}
+
+li.active {
+    background-color: white;
+    color: #fe0000;
+    }
+
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-300px);
+    }
+    to {
+        transform:  translateX(0);
+    }
+}
+
+.img-div {
+    width:100%
+}
+
+.div-row-for-room {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.main-row-room {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.img-div {
+    width: 50%;
+}
+

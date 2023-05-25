@@ -1,0 +1,31 @@
+{% extends 'base.html' %} {% block content %}
+<link rel="stylesheet" href="static/css/style3.css">
+  
+  <table class="table-container">
+    <thead>
+      <tr>
+        <th><h4>Name</h4></th>
+        <th><h4>Arrival Date</h4></th>
+        <th><h4>Departure Date</h4></th>
+        <th><h4>Room</h4></th>
+        <th><h4># of People</h4></th>
+        <th><h4>View</h4></th>
+        <th><h4>Edit</h4></th>
+        <th><h4>Delete</h4></th>
+      </tr>
+    </thead>
+    <tbody>
+      {%for user in all_users%}
+        <tr>
+          <td>{{user.first_name}} {{user.last_name}}</td>
+          <td>{{user.reservation.arrival_date}}</td>
+          <td>{{user.reservation.departure_date}}</td>
+          <td>{{user.reservation.room_name}}</td>
+          <td>{{user.reservation.number_of_people}}</td>
+          <td><a class="btn btn-primary" href="/view/{{user.reservation.room_name}}">View</a></td>
+          <td><a class="btn btn-info" href="/edit/{{user.reservation.room_name}}/{{user.reservation.id}}">Edit</a></td>
+          <td><a class="btn btn-danger" href="/delete_reservation/{{user.reservation.id}}">Delete</a></td></td>
+        </tr>
+      {%endfor%}
+      
+{% endblock %}

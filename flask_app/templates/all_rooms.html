@@ -1,0 +1,110 @@
+{% extends 'base.html' %} {% block content %}
+{%with error_messages = get_flashed_messages(category_filter=["login"])%}
+   {% if error_messages %}
+      <div class="alert alert-danger">
+         <ul class="ul_list">
+               {% for this_error in error_messages %}
+                  <li>{{this_error}}</li>
+               {% endfor %}
+         </ul>
+      </div>
+   {% endif %}
+{% endwith %}
+   
+      <!-- our_room -->
+      <div  class="our_room">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="titlepage">
+                     <h2 class="margin_0">Avalible Rooms </h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <a href="/double_room"class="col-md-4 col-sm-6">
+                  <div  id="serv_hover"  class="room">
+                     <div class="room_img">
+                        <figure><img src="/static/images/double_bed_3.jpeg" alt="#"/></figure>
+                     </div>
+                     <div class="bed_room">
+                        <h3>The Grand Serenity </h3>
+                        <p>Experience utmost comfort and style in our rooftop hotel double bedroom, where relaxation and elegance meet. This beautifully designed retreat features two cozy double beds adorned with luxurious linens and an array of pillows, ensuring a peaceful night's sleep. With floor-to-ceiling windows framing stunning views of the city skyline or natural landscapes, our rooftop hotel double bedroom offers a serene sanctuary where you can unwind and create lasting memories.</p>
+                     </div>
+                  </div>
+               </a>
+               <a href="/king_room"  class="col-md-4 col-sm-6">
+                  <div id="serv_hover"  class="room">
+                     <div class="room_img">
+                        <figure><img src="/static/images/king_bed.jpg" alt="#"/></figure>
+                     </div>
+                     <div class="bed_room">
+                        <h3>Luxe King Haven</h3>
+                        <p>Step into our exquisite rooftop hotel king bedroom, where luxury and comfort harmonize to create an unforgettable experience. This spacious and elegantly appointed retreat features a lavish king-sized bed adorned with premium linens and an array of pillows, ensuring a restful night's sleep. With floor-to-ceiling windows offering breathtaking views of the city skyline or natural landscapes, our rooftop hotel king bedroom provides a serene sanctuary where you can unwind and indulge in the ultimate relaxation.</p>
+                     </div>
+                  </div>
+               </a>
+               <a href="/suite_room" class="col-md-4 col-sm-6">
+                  <div id="serv_hover"  class="room">
+                     <div class="room_img">
+                        <figure><img src="/static/images/suite_3.png" alt="#"/></figure>
+                     </div>
+                     <div class="bed_room">
+                        <h3>The Royal Splendor</h3>
+                        <p>Experience the epitome of luxury in our rooftop hotel king bedroom, where comfort and sophistication converge. This spacious and tastefully designed retreat boasts a plush king-sized bed adorned with high-quality linens and an assortment of pillows, ensuring a restful night's sleep. With floor-to-ceiling windows offering breathtaking views of the city skyline or natural landscapes, our rooftop hotel king bedroom provides a serene and inviting space to unwind and rejuvenate. </p>
+                     </div>
+                  </div>
+               </a>
+               <a href="/penthouse"  class="col-md-4 col-sm-6">
+                  <div id="serv_hover"  class="room">
+                     <div class="room_img">
+                        <figure><img src="/static/images/penthouse_3.jpeg" alt="#"/></figure>
+                     </div>
+                     <div class="bed_room">
+                        <h3>The Diamond Skyline </h3>
+                        <p>Indulge in the epitome of luxury and sophistication at our stunning rooftop hotel penthouse. This exclusive retreat takes luxury to new heights, offering expansive living spaces, breathtaking panoramic views, and exquisite design. With lavish amenities, private terraces, and impeccable attention to detail, our rooftop hotel penthouse promises an unforgettable experience for those seeking the ultimate in opulence.</p>
+                     </div>
+                  </div>
+               </a>
+            </div>
+         </div>
+      </div>
+      <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class=" col-md-4">
+                     <h3>Contact US</h3>
+                     <ul class="conta">
+                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Address</li>
+                        <li><i class="fa fa-mobile" aria-hidden="true"></i> +01 1234569540</li>
+                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> demo@gmail.com</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-4">
+                     <h3>Menu Link</h3>
+                     <ul class="link_menu">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="/all_rooms">Our Room</a></li>
+                        <li><a href="/contact">Contact Us</a></li>
+                     </ul>
+                  </div>
+                  <div class="col-md-4">
+                     <h3>News letter</h3>
+                     <form class="bottom_form">
+                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
+                        <button class="sub_btn">subscribe</button>
+                     </form>
+                     <ul class="social_icon">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer>
+      {% endblock %}
+</html>

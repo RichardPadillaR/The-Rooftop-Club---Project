@@ -1,0 +1,51 @@
+{% extends 'base.html' %} {% block content %}
+<head>
+   <link rel="stylesheet" href="static/css/style2.css">
+</head>
+<body>
+   {%with error_messages = get_flashed_messages(category_filter=["login"])%}
+   {% if error_messages %}
+      <div class="alert alert-danger">
+         <ul class="ul_list">
+               {% for this_error in error_messages %}
+                  <li>{{this_error}}</li>
+               {% endfor %}
+         </ul>
+      </div>
+   {% endif %}
+{% endwith %}
+<div class="page-container">
+   <div class="register_login_div">
+      <div class="div3">
+         <div class="row">
+            <div class="flex">
+               <div class="book_room">
+                  <h1>Log In</h1>
+                  <form class="book_now" action="/login" method="post" >
+                     <div class="row row-div">
+                        <div class="col-md-12">
+                           <span>Email</span>
+                           <img class="date_cua" for="eamil">
+                           <input class="online_book" type="email" id="eamil" name="email" placeholder="Ex:John16@gmail.com">
+                        </div>
+                        <div class="col-md-12">
+                           <span>Password</span>
+                           <img class="date_cua" for="password">
+                           <input type="password" class="online_book" name="password" id="password"  placeholder="Password">
+                        </div>
+                        <div>
+                           <p class="text-white text">Don't have an account yet? <a href="/registration" class=" link-text">Sign Up</a> Here</p>
+                        </div>
+                        <div class="col-md-12">
+                           <button type="submit" class="book_btn">Log in</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+</body>
+{% endblock %}

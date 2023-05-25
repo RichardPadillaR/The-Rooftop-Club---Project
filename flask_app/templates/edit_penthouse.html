@@ -1,0 +1,78 @@
+{% extends 'base.html' %} {% block content %}
+{%with error_messages = get_flashed_messages(category_filter=["room"])%}
+   {% if error_messages %}
+      <div class="alert alert-danger">
+         <ul class="ul_list">
+               {% for this_error in error_messages %}
+                  <li>{{this_error}}</li>
+               {% endfor %}
+         </ul>
+      </div>
+   {% endif %}
+{% endwith %}
+<head>
+   <link rel="stylesheet" href="{{ url_for('static', filename = 'css/individual_rooms.css') }}">
+</head>
+<div class=>
+   <div class="room_container">
+      <div class="room_img">
+         <figure> <img src="{{ url_for('static', filename='images/penthouse_3.jpeg') }}" alt="#"/></figure>
+      </div>
+      <div class="div3">
+         <div class="row">
+            <div class="flex">
+               <div class="book_room">
+                  <div class="room_description">
+                     <h3 class="room_title">The Diamond Skyline</h3>
+                     <span>Room Description</span>
+                     <p class="description_p">Welcome to our extraordinary rooftop hotel penthouse, where luxury reaches new heights. Prepare to be captivated as you step into this exceptional space, showcasing the epitome of elegance and sophistication. The penthouse boasts a grand and lavish living area, adorned with high-end furnishings, exquisite artwork, and floor-to-ceiling windows that offer unparalleled panoramic views of the cityscape. Bask in the opulence of the carefully curated design, where every detail has been meticulously crafted to create an ambiance of absolute indulgence.</p>
+
+                     <p class="description_p"> As you make your way through the penthouse, you'll discover a collection of private retreats, including spacious bedrooms, each featuring plush king-size beds draped in luxurious linens. The tastefully appointed en-suite bathrooms are havens of relaxation, showcasing modern fixtures, deep soaking tubs, and lavish amenities to ensure your utmost comfort. The penthouse also encompasses an expansive dining area, perfect for entertaining guests or enjoying intimate meals, and a fully equipped kitchenette where you can prepare culinary delights at your leisure. To enhance your stay, modern amenities such as high-speed internet, flat-screen TVs, and a well-stocked mini-bar are seamlessly integrated throughout the penthouse. As a guest of our rooftop hotel, you'll have exclusive access to unparalleled privileges, including a private rooftop terrace or balcony, where you can savor breathtaking views while enjoying the ultimate in privacy and serenity. Prepare to be enchanted by the unmatched luxury and sophistication of our rooftop hotel penthouse, where each moment is designed to surpass all expectations and create memories that will last a lifetime.
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="booking_ocline">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-5">
+               <div class="book_room">
+                  <h1>Book a Room Now</h1>
+                  <form action="/edit/{{reservation.room_name}}/{{reservation.id}}" class="book_now" method="post">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <span>Arrival</span>
+                           <img class="date_cua" src="{{ url_for('static', filename='images/date.png') }}">
+                           <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="arrival_date" value="{{reservation.arrival_date}}">
+                        </div>
+                        <div class="col-md-12">
+                           <span>Departure</span>
+                           <img class="date_cua" src="{{ url_for('static', filename='images/date.png') }}">
+                           <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="departure_date" value="{{reservation.departure_date}}">
+                        </div>
+                        <div class="col-md-12">
+                           <span>Number of Guests</span>
+                           <img class="date_cua" src="{{ url_for('static', filename='images/date.png') }}">
+                           <input class="online_book" placeholder="1 - 4" type="number" max="4" min="0"  name="number_of_people" value="{{reservation.number_of_people}}">
+                        </div>
+                        <input type="hidden" name="user_id" value="{{user_id}}">
+                        <input type="hidden" name="room_name" value="The Diamond Skyline">
+                        <div class="col-md-12">
+                           {%if "user_id" in session %}
+                              <button type="submit" class="book_btn">Update Now</button>
+                           {%else%}
+                              <p class="text-white text"><a href="/login" class=" link-text">Log in</a> to book a room</p>
+                           {%endif%}
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}

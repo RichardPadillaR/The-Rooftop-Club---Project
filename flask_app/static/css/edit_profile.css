@@ -1,0 +1,20 @@
+/** edit_profile section**/
+
+body {
+    background-image: url("../images/lobby.jpg");
+    background-size: cover;
+    height: 500px;
+    }
+
+.edit_profile_main_container{
+    padding-top: 1px;
+}
+
+.changes-text{
+    color: aliceblue;
+}
+
+.btn-primary{
+    margin-top: 10px;
+    background-color: #fe0000
+}

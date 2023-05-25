@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% block content %}
+<head>
+   <link rel="stylesheet" href="static/css/style2.css">
+</head>
+{%with errors = get_flashed_messages(category_filter=["register"])%}
+   {% if errors %}
+      <div class="alert alert-danger">
+         <ul class="ul_list">
+            {% for error in errors %}
+               <li>{{error}}</li>
+            {% endfor %}
+         </ul>
+      </div>
+   {% endif %}
+{% endwith %}
+<div class="page-container">
+   <div class="register_login_div">
+      <div class="div3">
+         <div class="row">
+            <div class="flex">
+               <div class="book_room">
+                  <h1>Register</h1>
+                  <form class="book_now" action="/registration" method="post" >
+                     <div class="row">
+                        <div class="col-md-12">
+                           <span>First Name</span>
+                           <img class="date_cua" for="first_name">
+                           <input class="online_book" type="text" id="first_name" name="first_name" placeholder="Ex:John">
+                        </div>
+                        <div class="col-md-12">
+                           <span>Last Name</span>
+                           <img class="date_cua" for="last_name">
+                           <input class="online_book" type="text" id="last_name" name="last_name" placeholder="Ex:Smith">
+                        </div>
+                        <div class="col-md-12">
+                           <span>Email</span>
+                           <img class="date_cua" for="eamil">
+                           <input class="online_book" type="email" id="eamil" name="email" placeholder="Ex:John16@gmail.com">
+                        </div>
+                        <div class="col-md-12">
+                           <span>Password</span>
+                           <img class="date_cua" for="password">
+                           <input type="password" class="online_book" name="password" id="password"  placeholder="Password">
+                        </div>
+                        <div class="col-md-12">
+                           <span> Confirm Password</span>
+                           <img class="date_cua" for="confirm_password">
+                           <input type="password" class="online_book" name="confirm_password" id="confirm_password"  placeholder="Password">
+                        </div>
+                        <div class="col-md-12">
+                           <button type="submit" class="book_btn">Register Now</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+{% endblock %}
