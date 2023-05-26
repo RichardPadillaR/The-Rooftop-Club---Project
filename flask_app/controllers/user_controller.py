@@ -43,10 +43,10 @@ def validate_registration_then_save_user_registration_in_DB():
 def validate_login_then_log_in_a_user():
     this_user = user_model.User.checking_if_an_email_is_associated_with_a_user_in_DB(request.form)
     if not this_user:
-        flash("invalid email or password", "login")
+        flash("Invalid email or password", "login")
         return redirect("/login")
     if not bcrypt.check_password_hash(this_user.password, request.form["password"]):
-        flash("invalid password", "login")
+        flash("Invalid password", "login")
         return redirect("/login")
     session["user_id"] = this_user.id
     return redirect ("/")

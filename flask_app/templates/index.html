@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-{%with error_messages = get_flashed_messages(category_filter=["room"])%}
+{%with error_messages = get_flashed_messages(category_filter=["login"])%}
    {% if error_messages %}
       <div class="alert alert-danger">
          <ul class="ul_list">
-               {% for this_error in error_messages %}
-                  <li>{{this_error}}</li>
-               {% endfor %}
+            {% for this_error in error_messages %}
+               <li>{{this_error}}</li>
+            {% endfor %}
          </ul>
       </div>
    {% endif %}

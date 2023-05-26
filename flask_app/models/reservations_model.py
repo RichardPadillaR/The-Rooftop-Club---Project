@@ -60,6 +60,6 @@ class Reservations:
             flash("Please select an departure_date", "room")
             is_valid = False
         if int(reservation_dict["number_of_people"]) == 0:
-            flash("please provide the number of people for this reservation", "room")
+            flash("Please provide the number of people for this reservation", "room")
             is_valid = False
         return is_valid

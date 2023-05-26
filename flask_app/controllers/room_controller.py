@@ -5,7 +5,7 @@ from flask import render_template, request, flash, session, redirect
 @app.route("/all_rooms")
 def our_rooms ():
     if "user_id" not in session:
-        flash("please log in to browse the website", "login")
+        flash("Please log in to browse the website", "login")
         return redirect ("/")
     else:
         user = user_model.User.get_user_by_ID(session["user_id"])
