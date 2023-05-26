@@ -4,15 +4,15 @@
 </head>
 
 {%with error_messages = get_flashed_messages(category_filter=["update_profile"])%}
-   {% if error_messages %}
-      <div class="alert alert-danger">
-         <ul class="ul_list">
-               {% for this_error in error_messages %}
-                  <li>{{this_error}}</li>
-               {% endfor %}
-         </ul>
-      </div>
-   {% endif %}
+    {% if error_messages %}
+        <div class="alert alert-danger">
+            <ul class="ul_list">
+                {% for this_error in error_messages %}
+                    <li>{{this_error}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
 {% endwith %}
 <div class="edit_profile_main_container">
     <div class="form-content-holder">

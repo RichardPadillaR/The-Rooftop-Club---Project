@@ -129,50 +129,22 @@ class User:
 
 
     @staticmethod
-    def validate_edit(update_form):
+    def validate_edit(user_registraion_data):
         is_valid = True
-        if len(update_form["email"]) == 0:
+        if len(user_registraion_data["email"]) == 0:
             flash("Please submit a valid Email", "update_profile")
             is_valid = False
-        elif  not EMAIL_REGEX.match(update_form['email']): 
+        elif  not EMAIL_REGEX.match(user_registraion_data['email']): 
             flash("Invalid email address!", "update_profile")
             is_valid = False
-        if len(update_form["current_password"]) == 0:
-            flash("Please submit your current password", "update_profile")
+        if len(user_registraion_data["password"]) == 0:
+            flash("Please submit a password", "update_profile")
             is_valid = False
-        elif not update_form["existing_password"]:
-            flash("invalid current password", "update_profile")
-            is_valid = False
-        if len(update_form["new_password"]) == 0:
-            flash("Please submit a new password", "update_profile")
-            is_valid = False
-        if len(update_form["confirm_new_password"]) == 0:
-            flash("Please re-enter your new password in confirm password    ", "update_profile")
-            is_valid = False
-        elif len(update_form["new_password"]) < 8:
+        elif len(user_registraion_data["password"]) < 8:
             flash("password must be 8 characters or more", "update_profile")
             is_valid = False
-        elif update_form["new_password"] != update_form["confirm_new_password"]:
+        elif user_registraion_data["password"] != user_registraion_data["confirm_new_password"]:
             flash("new password does not match confirm password", "update_profile")
             is_valid = False
         return is_valid
-
-    @staticmethod
-    def validate_contact_us_form(contact_form):
-        is_valid = True
-        if len(contact_form["email"]) == 0:
-            flash("Please submit a valid Email",  "contact")
-            is_valid = False
-        elif  not EMAIL_REGEX.match(contact_form['email']): 
-            flash("Invalid email address!",  "contact")
-            is_valid = False
-        if len(contact_form["subject"]) == 0:
-            flash ("please provide a subject for your message", "contact")
-            is_valid = False
-        elif len(contact_form["subject"]) < 3:
-            flash ("your subject cannot be less than 3 characters", "contact")
-        if len(contact_form["message"]) == 0:
-            flash ("please provide a message", "contact")
-        if len(contact_form["message"]) < 6:
-            flash ("your message cannot be less than 6 characters", "contact")
-        return is_valid
+        

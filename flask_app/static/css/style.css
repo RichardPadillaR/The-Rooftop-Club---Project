@@ -317,11 +317,10 @@ button {
 
 
 .booking_ocline {
-     
-     position: absolute;
+     /**position: absolute;**/
      width: 100%;
      top: 50%;
-     transform: translateY(-50%);
+     transform: translateY(-240%);
 }
 
 .book_room {

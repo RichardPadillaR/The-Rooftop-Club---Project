@@ -87,9 +87,9 @@
                                     </div>
 
                                 </li>
-                                {%if "user_id" in session%}
-                                    <h4 class="user_name">{{user.first_name}} {{user.last_name}}</h4>
-                                {%endif%}
+                                {% if "user_id" in session %}
+                                    <h4 class="user_name"> {{user.first_name}} {{user.last_name}}</h4>
+                                {% endif %}
                             </ul>
                             {% else %}
                             <ul class="navbar-nav mr-auto">
@@ -116,7 +116,7 @@
                                     </li>
                                 </ul>
                             </ul>
-                            {%endif%}
+                            {% endif %}
                         </div>
                     </nav>
                 </div>

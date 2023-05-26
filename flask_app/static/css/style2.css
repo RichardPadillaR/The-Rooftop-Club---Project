@@ -89,3 +89,6 @@ li.active {
     width: 50%;
 }
 
+.register_login_div{
+    transform: translateY(10%);
+}

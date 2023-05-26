@@ -22,13 +22,13 @@ def view_room(room_name):
     else:
         user = user_model.User.get_user_by_ID(session["user_id"])
         if room_name == "The Grand Serenity":
-            return render_template("view_double_room.html")
+            return render_template("view_double_room.html", user = user)
         elif room_name == "Luxe King Haven":
-            return render_template("view_king_room.html")
+            return render_template("view_king_room.html", user = user)
         elif room_name == "The Diamond Skyline":
-            return render_template ("view_penthouse.html")
+            return render_template ("view_penthouse.html", user = user)
         elif room_name == "The Royal Splendor":
-            return render_template ("view_suite_room.html")
+            return render_template ("view_suite_room.html", user = user)
         else:
             return redirect("/reservations", user = user)
 
@@ -45,18 +45,18 @@ def edit_reservation(room_name, reservation_id):
         user = user_model.User.get_user_by_ID(session["user_id"])
         if room_name == "The Grand Serenity":
             reservation = reservations_model.Reservations.get_reservation_by_id(reservation_id)
-            return render_template("edit_double_room.html", reservation = reservation)
+            return render_template("edit_double_room.html", reservation = reservation, user = user)
         elif room_name == "Luxe King Haven":
             reservation = reservations_model.Reservations.get_reservation_by_id(reservation_id)
-            return render_template("edit_king_room.html", reservation = reservation)
+            return render_template("edit_king_room.html", reservation = reservation, user = user)
         elif room_name == "The Diamond Skyline":
             reservation = reservations_model.Reservations.get_reservation_by_id(reservation_id)
-            return render_template ("edit_penthouse.html", reservation = reservation)
+            return render_template ("edit_penthouse.html", reservation = reservation, user = user)
         elif room_name == "The Royal Splendor":
             reservation = reservations_model.Reservations.get_reservation_by_id(reservation_id)
             return render_template ("edit_suite_room.html", reservation = reservation, user = user)
         else:
-            return redirect("/reservations")
+            return redirect("/reservations", user = user)
 
 @app.route("/edit/<room_name>/<int:reservation_id>", methods = ["POST"])
 def update_reservation(room_name, reservation_id):

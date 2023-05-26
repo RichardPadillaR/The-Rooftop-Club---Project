@@ -76,7 +76,7 @@ def penthouse ():
 @app.route("/penthouse", methods = ["POST"])
 def penthouse_reservation ():
     if reservations_model.Reservations.validate_reservation(request.form):
-        reservations_model.Reservations.save_reservation_form(request.form) 
+        reservations_model.Reservations.save_reservation_form(request.form)
         return redirect("/reservations")
     else:
         return redirect("/penthouse")
