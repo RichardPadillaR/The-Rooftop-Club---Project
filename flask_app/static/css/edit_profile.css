@@ -1,11 +1,14 @@
 body {
     background-image: url("../images/lobby.jpg");
     background-size: cover;
-    height: 500px;
+    height: 920px;
     }
 
 .edit_profile_main_container{
-    padding-top: 1px;
+    display: flex;
+    padding: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 .changes-text{

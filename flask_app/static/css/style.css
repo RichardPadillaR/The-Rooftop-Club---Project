@@ -947,12 +947,12 @@ line-height: 35px;
 .link-text {
      color: rgb(55, 255, 205);
      text-decoration: underline;
- }
- 
- .link-text:hover {
+}
+
+.link-text:hover {
      color: rgb(0, 162, 255);
      font-size: 20px;
- }
+}
 
 .profile-pic-div {
      height: 50px;
@@ -975,17 +975,16 @@ line-height: 35px;
 
      height: 100vh;
      width: 100%;
-  }
-  
-  .form-content-container {
+}
+
+.form-content-container {
      width: 50%;
      margin-left: 20px;
-      
-  }
-  
-  .update-form {
-      width: 100%;
-  }
+}
+
+.update-form {
+     width: 100%;
+}
 
 .img-div {
      width: 50%;
@@ -993,12 +992,11 @@ line-height: 35px;
 
 .form-content-main-container {
      display: flex;
-     border: 1px solid black;
      border-radius: 4px;
-     padding: 20px;
      margin:0 auto;
      width: 800px;
-     background-color: rgb(64, 64, 90);
+     justify-content: center;
+     align-self: center;
 }
 
 .computer-img {
@@ -1012,14 +1010,14 @@ line-height: 35px;
 .hotel-div {
      display: flex;
      align-items: center;
- 
- }
- 
- .hotel-name {
+
+}
+
+.hotel-name {
      color: whitesmoke;
      padding: 0;
- }
- 
+}
+
 .changes-div {
      width: 800px;
      margin: 0 auto;
@@ -1029,9 +1027,9 @@ line-height: 35px;
 }
 
 
- .changes-text {
+.changes-text {
      display: inline;
- }
+}
 
 .all-labels {
      color: white;
