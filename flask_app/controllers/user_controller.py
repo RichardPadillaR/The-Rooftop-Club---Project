@@ -74,21 +74,16 @@ def edit_profile():
     file.save('flask_app/static/images/pic.jpg')
     profile_pic = 'static/images/pic.jpg'
     session["profile_pic"] = profile_pic
-    
-    if user_model.User.validate_edit(request.form):
-        if not bcrypt.check_password_hash(current_user.password, request.form["current_password"]):
-            flash("invalid current password", "update")
-            print("HEY")
-            return redirect("/edit")
-        return redirect("/edit")
-    elif not user_model.User.validate_edit(request.form):
-        if not bcrypt.check_password_hash(current_user.password, request.form["current_password"]):
-            flash("invalid current password", "update")
-            print("HEY")
-            return redirect("/edit")
-        return redirect("/edit")
-    else:
-        pw_hash = bcrypt.generate_password_hash(request.form['password'])
+    check_password = bcrypt.check_password_hash(current_user.password, request.form["current_password"])
+    new_dict = {
+        "email":request.form["email"],
+        "current_password": request.form["current_password"],
+        "new_password": request.form["new_password"],
+        "confirm_new_password": request.form["confirm_new_password"],
+        "existing_password": check_password
+    }
+    if  user_model.User.validate_edit(new_dict):
+        pw_hash = bcrypt.generate_password_hash(request.form['new_password'])
         user_form_data = {
         "email": request.form["email"],
         "password": pw_hash,
@@ -96,11 +91,15 @@ def edit_profile():
         }
         user_model.User.edit_user_profile(user_form_data)
         return redirect("/")
+    else:
+        return redirect("/edit")
+
 
 
 @app.route("/edit")
 def render_edit():
-    return render_template("edit_profile.html", user_id = session["user_id"])
+    user = user_model.User.get_user_by_ID(session["user_id"])
+    return render_template("edit_profile.html", user_id = session["user_id"], user = user)
 
 
 

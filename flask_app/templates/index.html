@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block content %}
-{%with error_messages = get_flashed_messages(category_filter=["login"])%}
+{%with error_messages = get_flashed_messages(category_filter=["room"])%}
    {% if error_messages %}
       <div class="alert alert-danger">
          <ul class="ul_list">

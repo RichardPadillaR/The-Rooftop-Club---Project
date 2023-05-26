@@ -1,4 +1,15 @@
 {% extends 'base.html' %} {% block content %}
+{%with error_messages = get_flashed_messages(category_filter=["contact"])%}
+   {% if error_messages %}
+      <div class="alert alert-danger">
+         <ul class="ul_list">
+               {% for this_error in error_messages %}
+                  <li>{{this_error}}</li>
+               {% endfor %}
+         </ul>
+      </div>
+   {% endif %}
+{% endwith %}
       <div class="back_re">
          <div class="container">
             <div class="row">
@@ -15,19 +26,16 @@
          <div class="container">
             <div class="row">
                <div class="col-md-6">
-                  <form id="request" class="main_form">
+                  <form action="/contact" method="post" id="request" class="main_form">
                      <div class="row">
                         <div class="col-md-12 ">
-                           <input class="contactus" placeholder="Subject" type="type" name="subject"> 
+                           <input class="contactus" placeholder="Email" type="type" name="email"> 
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="Email" type="type" name="Email"> 
+                           <input class="contactus" placeholder="Subject" type="type" name="subject">                          
                         </div>
                         <div class="col-md-12">
-                           <input class="contactus" placeholder="password" type="password" name="password">                          
-                        </div>
-                        <div class="col-md-12">
-                           <textarea class="textarea" placeholder="Message" type="type" Message="Name">Message</textarea>
+                           <textarea class="textarea" placeholder="Message" type="type" name="message">Message</textarea>
                         </div>
                         <div class="col-md-12">
                            <button class="send_btn">Send</button>

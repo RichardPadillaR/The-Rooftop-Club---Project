@@ -34,7 +34,8 @@ body {
 
 .text {
     font-size: 18px;
-    margin-bottom: 10px;
+    padding-left: 13px;
+    margin-bottom: 20px;
 }
 
 .row_div {
@@ -53,7 +54,7 @@ body {
 
 li.active {
     background-color: white;
-    color: #fe0000;
+    color: red;
     }
 
 

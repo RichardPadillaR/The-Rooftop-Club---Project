@@ -34,7 +34,7 @@
 }
 
 .container {
-     max-width: 1500px;
+     max-width: 1170px;
 }
 
 html {
@@ -257,12 +257,11 @@ button {
 
 .navigation.navbar {
      float: right;
-     padding-top: 14px !important;
      padding: 0;
 }
 
 .navigation.navbar-dark .navbar-nav .nav-link {
-     padding: 7px 0px 27px 0px;
+     padding: 0px;
      margin: 0 22px;
      color: whitesmoke;
      font-size: 16px;
@@ -297,17 +296,9 @@ button {
      background: #fff;
 }
 
-.user_name{
-     padding: 2px;
-     padding-left: 3px;
-}
 
 /** banner section **/
 
-.register_login_div{
-     height: 100%;
-     width: 100%;
-}
 .banner_main {
      position: relative;
      
@@ -382,6 +373,7 @@ button {
      width: 100%;
      margin: 0 auto;
      padding: 10px 0;
+     padding-top: 15px;
      border-radius: 50px;
      color: #fff;
      font-size: 20px;
@@ -1026,6 +1018,7 @@ line-height: 35px;
  
  .hotel-name {
      color: whitesmoke;
+     padding: 0;
  }
  
 .changes-div {
@@ -1051,4 +1044,26 @@ line-height: 35px;
 
 .user_name {
      color: white;
+     margin: 0 22px;
+
+}
+
+.nav-row {
+     display: flex;
+     flex-wrap: wrap;
+     margin-right: -15px;
+     margin-left: -15px;
+     justify-content: space-around;
+}
+
+.navigation .navbar-nav {
+padding-top: 0px;
+display: flex;
+align-items: center;
+}
+
+.logo-name {
+     display: flex;
+     justify-content: center;
+     align-items: center;
 }

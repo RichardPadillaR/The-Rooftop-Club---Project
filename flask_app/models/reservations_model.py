@@ -1,5 +1,5 @@
 from flask_app.config.mysqlconnection import connectToMySQL
-from flask import flash, session
+from flask import flash
 
 class Reservations:
     def __init__(self,data):
@@ -53,9 +53,6 @@ class Reservations:
     @staticmethod
     def validate_reservation(reservation_dict):
         is_valid = True
-        if "user_id" not in session:
-            flash("Please log in to browse the website")
-            is_valid = False
         if len(reservation_dict["arrival_date"]) == 0:
             flash("Please select an arrival date", "room")
             is_valid = False
@@ -63,6 +60,6 @@ class Reservations:
             flash("Please select an departure_date", "room")
             is_valid = False
         if int(reservation_dict["number_of_people"]) == 0:
-            flash("Please provide the number of people for this reservation", "room")
+            flash("please provide the number of people for this reservation", "room")
             is_valid = False
         return is_valid

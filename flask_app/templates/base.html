@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <!-- site metas -->
-        <title>The Rooftop Club</title>
+        <title>Rooftop Club</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
@@ -40,9 +40,8 @@
         <header>
         <!-- header inner -->
         <div class="header">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section hotel-div">
+                <div class="nav-row">
+                    <div class="logo-name">
                         <div class="full">
                         <div class="center-desk">
                             <li class="nav-item">
@@ -53,8 +52,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                <div>
                     <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                        <div>
+
+                        </div>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -68,7 +70,7 @@
                                     <a class="nav-link" href="/all_rooms">Rooms</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/reservations">Reservations</a>
+                                    <a class="nav-link" href="/reservations">reservations</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="/contact">Contact Us</a>
@@ -85,11 +87,9 @@
                                     </div>
 
                                 </li>
-                                <li class="user_name">
-                                {%if user%}
+                                {%if "user_id" in session%}
                                     <h4 class="user_name">{{user.first_name}} {{user.last_name}}</h4>
                                 {%endif%}
-                                </li>
                             </ul>
                             {% else %}
                             <ul class="navbar-nav mr-auto">
