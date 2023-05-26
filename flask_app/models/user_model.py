@@ -96,13 +96,13 @@ class User:
     def validate_registration(user_registraion_data):
         is_valid = True
         if len(user_registraion_data["first_name"]) == 0:
-            flash("please submit a First Name", "register")
+            flash("Please submit a First Name", "register")
             is_valid = flash
         elif len(user_registraion_data["first_name"]) < 2:
             flash("First name must be greater than 2 characters", "register")
             is_valid = False
         if len(user_registraion_data["last_name"]) == 0:
-            flash("please submit a Last Name", "register")
+            flash("Please submit a Last Name", "register")
             is_valid = flash
         elif len(user_registraion_data["last_name"]) < 2:
             flash("Last name must be greater than 2 characters", "register")
@@ -114,16 +114,16 @@ class User:
             flash("Invalid email address!", "register")
             is_valid = False
         elif User.checking_if_user_email_exists_in_DB(user_registraion_data):
-            flash("email already in use", "register")
+            flash("Email already in use", "register")
             is_valid = False
         if len(user_registraion_data["password"]) == 0:
             flash("Please submit a password", "register")
             is_valid = False
         elif len(user_registraion_data["password"]) < 8:
-            flash("password must be 8 characters or more", "register")
+            flash("Password must be 8 characters or more", "register")
             is_valid = False
         elif user_registraion_data["password"] != user_registraion_data["confirm_password"]:
-            flash("confirmed password does not match password", "register")
+            flash("Confirmed password does not match password", "register")
             is_valid = False
         return is_valid
 
@@ -134,17 +134,16 @@ class User:
         if len(user_registraion_data["email"]) == 0:
             flash("Please submit a valid Email", "update_profile")
             is_valid = False
-        elif  not EMAIL_REGEX.match(user_registraion_data['email']): 
+        elif not EMAIL_REGEX.match(user_registraion_data['email']): 
             flash("Invalid email address!", "update_profile")
             is_valid = False
-        if len(user_registraion_data["password"]) == 0:
+        elif len(user_registraion_data['new_password']) == 0:
             flash("Please submit a password", "update_profile")
             is_valid = False
-        elif len(user_registraion_data["password"]) < 8:
-            flash("password must be 8 characters or more", "update_profile")
+        elif len(user_registraion_data['confirm_new_password']) < 8:
+            flash("Password must be 8 characters or more", "update_profile")
             is_valid = False
         elif user_registraion_data["password"] != user_registraion_data["confirm_new_password"]:
-            flash("new password does not match confirm password", "update_profile")
+            flash("New password does not match confirm password", "update_profile")
             is_valid = False
         return is_valid
-        

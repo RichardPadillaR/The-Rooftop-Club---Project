@@ -98,8 +98,11 @@ def edit_profile():
 
 @app.route("/edit")
 def render_edit():
-    user = user_model.User.get_user_by_ID(session["user_id"])
-    return render_template("edit_profile.html", user_id = session["user_id"], user = user)
+    if "user_id" not in session:
+        return redirect("/")
+    else:    
+        user = user_model.User.get_user_by_ID(session["user_id"])
+        return render_template("edit_profile.html", user_id = session["user_id"], user = user)
 
 
 
