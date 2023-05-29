@@ -66,17 +66,20 @@ class User:
         result = connectToMySQL("project_db").query_db(query, user_dict)
         this_list = []
         for db_row in result:
-            this_user = cls(db_row)
-            reservation_dict = {
-                "id": db_row["reservations_date.id"],
-                "arrival_date": db_row["arrival_date"],
-                "departure_date": db_row["departure_date"],
-                "number_of_people":  db_row["number_of_people"],
-                "room_name": db_row["room_name"],
-                "created_at": db_row["reservations_date.created_at"],
-                "updated_at": db_row["reservations_date.updated_at"],
-                "user_id": db_row["user_id"]
-            }
+            if db_row['reservations_date.id'] == None:
+                break
+            else:
+                this_user = cls(db_row)
+                reservation_dict = {
+                    "id": db_row["reservations_date.id"],
+                    "arrival_date": db_row["arrival_date"],
+                    "departure_date": db_row["departure_date"],
+                    "number_of_people":  db_row["number_of_people"],
+                    "room_name": db_row["room_name"],
+                    "created_at": db_row["reservations_date.created_at"],
+                    "updated_at": db_row["reservations_date.updated_at"],
+                    "user_id": db_row["user_id"]
+                    }
         
 
             this_reservation = reservations_model.Reservations(reservation_dict)
