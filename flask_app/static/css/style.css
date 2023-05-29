@@ -1043,7 +1043,7 @@ line-height: 35px;
 .user_name {
      color: white;
      margin: 0 22px;
-
+     padding: 0;
 }
 
 .nav-row {
