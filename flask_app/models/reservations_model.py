@@ -54,10 +54,10 @@ class Reservations:
     def validate_reservation(reservation_dict):
         is_valid = True
         if len(reservation_dict["arrival_date"]) == 0:
-            flash("Please select an arrival date", "room")
+            flash("Please select a Arrival Date", "room")
             is_valid = False
         if len(reservation_dict["departure_date"]) == 0:
-            flash("Please select an departure_date", "room")
+            flash("Please select a Departure Date", "room")
             is_valid = False
         if int(reservation_dict["number_of_people"]) == 0:
             flash("Please provide the number of people for this reservation", "room")

@@ -27,5 +27,8 @@
           <td><a class="btn btn-danger" href="/delete_reservation/{{user.reservation.id}}">Delete</a></td></td>
         </tr>
       {%endfor%}
-      
+      <div class="make-a-reservation-div">
+        <p>You Dont have a reservation? <a href="/all_rooms"> Click here</a> to pick a room and schedule a reservation
+        </p>
+      </div>
 {% endblock %}

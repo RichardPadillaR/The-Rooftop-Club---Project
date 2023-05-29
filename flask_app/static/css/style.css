@@ -1065,3 +1065,8 @@ align-items: center;
      justify-content: center;
      align-items: center;
 }
+.reservation-table-div {
+     height:800px;
+     overflow:scroll;
+     overflow-x:hidden;
+}
