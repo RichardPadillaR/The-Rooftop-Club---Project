@@ -61,7 +61,9 @@ class User:
 
         query = """SELECT * FROM users  
         LEFT JOIN reservations_date ON reservations_date.user_id = users.id
-        WHERE users.id = %(id)s"""
+        WHERE users.id = %(id)s
+        ORDER BY reservations_date.arrival_date DESC;
+        """
 
         result = connectToMySQL("project_db").query_db(query, user_dict)
         this_list = []
