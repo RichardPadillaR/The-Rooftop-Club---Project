@@ -18,8 +18,8 @@
       {%for user in all_users%}
         <tr>
           <td>{{user.first_name}} {{user.last_name}}</td>
-          <td>{{user.reservation.arrival_date}}</td>
-          <td>{{user.reservation.departure_date}}</td>
+          <td>{{user.reservation.arrival_date.strftime('%m-%d-%Y')}}</td>
+          <td>{{user.reservation.departure_date.strftime('%m-%d-%Y')}}</td>
           <td>{{user.reservation.room_name}}</td>
           <td>{{user.reservation.number_of_people}}</td>
           <td><a class="btn btn-primary" href="/view/{{user.reservation.room_name}}">View</a></td>
