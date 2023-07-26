@@ -1,11 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-{%with error_messages = get_flashed_messages(category_filter=["login"])%}
+{%with error_messages = get_flashed_messages(category_filter=["room"])%}
    {% if error_messages %}
       <div class="alert alert-danger">
          <ul class="ul_list">
-            {% for this_error in error_messages %}
-               <li>{{this_error}}</li>
-            {% endfor %}
+               {% for this_error in error_messages %}
+                  <li>{{this_error}}</li>
+               {% endfor %}
          </ul>
       </div>
    {% endif %}
@@ -46,14 +46,14 @@
          <div class="container-fluid">
             <div class="row d-flex align-center">
                <div class="col-md-5">
-                  <h2>About Us</h2>
-                  <p>Welcome to our breathtaking rooftop resort, where dreams meet the horizon. Nestled high above the bustling city, our enchanting oasis offers a unique escape for discerning travelers seeking a memorable and extraordinary experience. With panoramic views that stretch as far as the eye can see, our rooftop paradise is a sanctuary of tranquility and luxury.Whether you're lounging by the infinity pool, savoring delectable cuisine at our rooftop restaurant, or unwinding with a refreshing cocktail at the stylish bar, every moment is designed to elevate your senses. Discover a world where relaxation, elegance, and unparalleled beauty converge, creating unforgettable memories that will linger in your heart forever. </p>
+                  <h2 class="about-us-header">JOIN US!</h2>
+                  <p class="about-us-text">Welcome to our breathtaking rooftop resort, where dreams meet the horizon. Nestled high above the bustling city, our enchanting oasis offers a unique escape for discerning travelers seeking a memorable and extraordinary experience. With panoramic views that stretch as far as the eye can see, our rooftop paradise is a sanctuary of tranquility and luxury.Whether you're lounging by the infinity pool, savoring delectable cuisine at our rooftop restaurant, or unwinding with a refreshing cocktail at the stylish bar, every moment is designed to elevate your senses. Discover a world where relaxation, elegance, and unparalleled beauty converge, creating unforgettable memories that will linger in your heart forever.Register and create an account to enjoy paradise.</p>
                   <div class="titlepage">
                   </div>
                </div>
                <div class="col-md-7">
                   <div class="about_img">
-                     <figure><img src="static/images/about.png" alt="#"/></figure>
+                     <figure><img class="about-us-image" src="static/images/about.png" alt="#"/></figure>
                   </div>
                </div>
             </div>
@@ -61,37 +61,29 @@
       </div>
       <footer>
          <div class="footer">
-            <div class="container">
-               <div class="row">
-                  <div class=" col-md-4">
-                     <h3>Contact US</h3>
-                     <ul class="conta">
-                        <li><i class="fa fa-map-marker" aria-hidden="true"></i> Address</li>
-                        <li><i class="fa fa-mobile" aria-hidden="true"></i> +01 1234569540</li>
-                        <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> demo@gmail.com</a></li>
-                     </ul>
-                  </div>
-                  <div class="col-md-4">
-                     <h3>Menu Link</h3>
-                     <ul class="link_menu">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="/all_rooms">Our Room</a></li>
-                        <li><a href="/contact">Contact Us</a></li>
-                     </ul>
-                  </div>
-                  <div class="col-md-4">
-                     <h3>News letter</h3>
-                     <form class="bottom_form">
-                        <input class="enter" placeholder="Enter your email" type="text" name="Enter your email">
-                        <button class="sub_btn">subscribe</button>
-                     </form>
-                     <ul class="social_icon">
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                     </ul>
-                  </div>
+            <div class="footer-container">
+               <div>
+                  <h3>Hotel Information</h3>
+                  <ul class="conta">
+                     <li><i class="fa fa-map-marker" aria-hidden="true"></i>1636 South Brodway , Los Angeles, CA 10452</li>
+                     <li><i class="fa fa-mobile" aria-hidden="true"></i> +01 1234569540</li>
+                     <li> <i class="fa fa-envelope" aria-hidden="true"></i><a href="#"> demo@gmail.com</a></li>
+                  </ul>
+               </div>
+               <div>
+                  <h3>Ceo's</h3>
+                  <ul class="conta">
+                     <li class="active">Fernando Adames</li>
+                     <li class="active">Richard P</li>
+                     
+                  </ul>
+               </div>
+               <div >
+                  <h3>New Locations</h3>
+                  <ul class="conta">
+                     <li><i class="fa fa-map-marker location-marker" aria-hidden="true">1849 Chelsey, Manhttan,  NY 10333 </i>
+                  </ul>
+                  
                </div>
             </div>
          </div>

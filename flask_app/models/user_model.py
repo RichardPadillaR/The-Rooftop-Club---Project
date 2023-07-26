@@ -1,3 +1,4 @@
+import datetime
 from flask_app.config.mysqlconnection import connectToMySQL
 from flask import flash
 from flask_app.models import reservations_model
@@ -12,6 +13,7 @@ class User:
         self.last_name = data["last_name"]
         self.email = data["email"]
         self.password = data["password"]
+        self.profile_pic = data["profile_pic"]
         self.created_at = data["created_at"]
         self.updated_at = data["updated_at"]
         self.reservation = None
@@ -59,16 +61,15 @@ class User:
             "id" : user_id
         }
 
-        query = """SELECT * FROM users  
-        LEFT JOIN reservations_date ON reservations_date.user_id = users.id
-        WHERE users.id = %(id)s
-        ORDER BY reservations_date.arrival_date DESC;
-        """
+        query = """SELECT * FROM users
+                LEFT JOIN reservations_date 
+                ON reservations_date.user_id = users.id
+                WHERE users.id = %(id)s ORDER by arrival_date ASC"""
 
         result = connectToMySQL("project_db").query_db(query, user_dict)
         this_list = []
         for db_row in result:
-            if db_row['reservations_date.id'] == None:
+            if db_row["reservations_date.id"] == None:
                 break
             else:
                 this_user = cls(db_row)
@@ -81,7 +82,7 @@ class User:
                     "created_at": db_row["reservations_date.created_at"],
                     "updated_at": db_row["reservations_date.updated_at"],
                     "user_id": db_row["user_id"]
-                    }
+                }
         
 
             this_reservation = reservations_model.Reservations(reservation_dict)
@@ -97,17 +98,29 @@ class User:
         result = connectToMySQL("project_db").query_db(query, form_dict)
         return result
 
+    @classmethod
+    def set_profile_picture(cls, user_id, filename):
+        query = """UPDATE users 
+        SET profile_pic = %(filename)s
+        WHERE id = %(user_id)s"""
+        data = {
+            "user_id": user_id,
+            "filename": filename
+        }
+        result = connectToMySQL("project_db").query_db(query, data)
+        return result
+
     @staticmethod
     def validate_registration(user_registraion_data):
         is_valid = True
         if len(user_registraion_data["first_name"]) == 0:
-            flash("Please submit a First Name", "register")
+            flash("please submit a First Name", "register")
             is_valid = flash
         elif len(user_registraion_data["first_name"]) < 2:
             flash("First name must be greater than 2 characters", "register")
             is_valid = False
         if len(user_registraion_data["last_name"]) == 0:
-            flash("Please submit a Last Name", "register")
+            flash("please submit a Last Name", "register")
             is_valid = flash
         elif len(user_registraion_data["last_name"]) < 2:
             flash("Last name must be greater than 2 characters", "register")
@@ -119,36 +132,65 @@ class User:
             flash("Invalid email address!", "register")
             is_valid = False
         elif User.checking_if_user_email_exists_in_DB(user_registraion_data):
-            flash("Email already in use", "register")
+            flash("email already in use", "register")
             is_valid = False
         if len(user_registraion_data["password"]) == 0:
             flash("Please submit a password", "register")
             is_valid = False
         elif len(user_registraion_data["password"]) < 8:
-            flash("Password must be 8 characters or more", "register")
+            flash("password must be 8 characters or more", "register")
             is_valid = False
         elif user_registraion_data["password"] != user_registraion_data["confirm_password"]:
-            flash("Confirmed password does not match password", "register")
+            flash("confirmed password does not match password", "register")
             is_valid = False
         return is_valid
 
 
     @staticmethod
-    def validate_edit(user_registraion_data):
+    def validate_edit(update_form):
         is_valid = True
-        if len(user_registraion_data["email"]) == 0:
+        if len(update_form["email"]) == 0:
             flash("Please submit a valid Email", "update_profile")
             is_valid = False
-        elif not EMAIL_REGEX.match(user_registraion_data['email']): 
+        elif  not EMAIL_REGEX.match(update_form['email']): 
             flash("Invalid email address!", "update_profile")
             is_valid = False
-        elif len(user_registraion_data['new_password']) == 0:
-            flash("Please submit a password", "update_profile")
+        if len(update_form["current_password"]) == 0:
+            flash("Please submit your current password", "update_profile")
             is_valid = False
-        elif len(user_registraion_data['confirm_new_password']) < 8:
-            flash("Password must be 8 characters or more", "update_profile")
+        elif not update_form["existing_password"]:
+            flash("invalid current password", "update_profile")
             is_valid = False
-        elif user_registraion_data["password"] != user_registraion_data["confirm_new_password"]:
-            flash("New password does not match confirm password", "update_profile")
+        if len(update_form["new_password"]) == 0:
+            flash("Please submit a new password", "update_profile")
             is_valid = False
+        if len(update_form["confirm_new_password"]) == 0:
+            flash("Please re-enter your new password in confirm password    ", "update_profile")
+            is_valid = False
+        elif len(update_form["new_password"]) < 8:
+            flash("password must be 8 characters or more", "update_profile")
+            is_valid = False
+        elif update_form["new_password"] != update_form["confirm_new_password"]:
+            flash("new password does not match confirm password", "update_profile")
+            is_valid = False
+        return is_valid
+
+    @staticmethod
+    def validate_contact_us_form(contact_form):
+        is_valid = True
+        if len(contact_form["email"]) == 0:
+            flash("Please submit a valid Email",  "contact")
+            is_valid = False
+        elif  not EMAIL_REGEX.match(contact_form['email']): 
+            flash("Invalid email address!",  "contact")
+            is_valid = False
+        if len(contact_form["subject"]) == 0:
+            flash ("please provide a subject for your message", "contact")
+            is_valid = False
+        elif len(contact_form["subject"]) < 3:
+            flash ("your subject cannot be less than 3 characters", "contact")
+        if len(contact_form["message"]) == 0:
+            flash ("please provide a message", "contact")
+        if len(contact_form["message"]) < 6:
+            flash ("your message cannot be less than 6 characters", "contact")
         return is_valid

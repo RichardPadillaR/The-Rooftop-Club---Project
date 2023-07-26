@@ -5,7 +5,7 @@ from flask import render_template, request, flash, session, redirect
 @app.route("/all_rooms")
 def our_rooms ():
     if "user_id" not in session:
-        flash("Please log in to browse the website", "login")
+        flash("please log in to browse the website", "login")
         return redirect ("/")
     else:
         user = user_model.User.get_user_by_ID(session["user_id"])
@@ -76,7 +76,7 @@ def penthouse ():
 @app.route("/penthouse", methods = ["POST"])
 def penthouse_reservation ():
     if reservations_model.Reservations.validate_reservation(request.form):
-        reservations_model.Reservations.save_reservation_form(request.form)
+        reservations_model.Reservations.save_reservation_form(request.form) 
         return redirect("/reservations")
     else:
         return redirect("/penthouse")

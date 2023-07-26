@@ -13,10 +13,12 @@
 <head>
    <link rel="stylesheet" type="text/css"  href="{{ url_for ('static', filename='css/individual_rooms.css') }}">
 </head>
-<div class="page_controller">
+<div class=>
    <div class="room_container">
       <div class="room_img">
-         <figure><img src = "{{ url_for('static', filename='images/double_bed_3.jpeg') }}" alt="#"/></figure>
+         <!-- <figure> -->
+            <img class="custom-room-image" src = "{{ url_for('static', filename='images/double_bed_3.jpeg') }}" alt="#"/>
+         <!-- </figure> -->
       </div>
       <div class="div3">
          <div class="row">
@@ -24,7 +26,7 @@
                <div class="book_room">
                   <div class="room_description">
                      <h3 class="room_title">The Grand Serenity </h3>
-                     <span>Room Description</span>
+                     <span class="description-text">Room Description</span>
                      <p class="description_p">Experience unparalleled comfort and serenity in our rooftop hotel's double bed room. This thoughtfully designed space combines contemporary elegance with a cozy atmosphere, offering a tranquil escape from the city below. Adorned with floor-to-ceiling windows, the room provides breathtaking panoramic views, allowing you to relax and enjoy the vibrant energy of the surroundings while enjoying utmost privacy.</p>
 
                      <p class="description_p"> The highlight of the room is the luxurious double bed, adorned with soft linens and an array of plush pillows for a restful night's sleep. With bedside tables and reading lamps on each side, convenience and relaxation are at your fingertips. The modern design, complemented by tasteful artworks, creates a sophisticated ambiance. The en-suite bathroom is an oasis of relaxation, featuring sleek fixtures, a walk-in rain shower, and a deep soaking tub. Stay connected with high-speed internet and enjoy in-room entertainment on the flat-screen TV. To enhance your stay, a well-stocked mini-bar and a coffee machine are at your disposal. As a guest, you'll have exclusive access to the rooftop lounge and bar, where you can indulge in delicious cuisine and handcrafted cocktails while marveling at the panoramic views. Our double bed room offers an idyllic retreat for those seeking urban luxury and a memorable rooftop experience.  </p>
@@ -34,7 +36,7 @@
          </div>
       </div>
    </div>
-   <div class="booking_ocline">
+   <div class="booking_ocline calendar">
       <div class="container">
          <div class="row">
             <div class="col-md-5">

@@ -14,7 +14,6 @@ body {
 }
 
 h4 {
-  font-size:3em; 
   font-weight: 300;
   line-height:1em;
   text-align: center;
@@ -46,6 +45,7 @@ h2 a {
 	  font-size: 1.2em;
   text-align: left;
   color: #07a1e9;
+  
 }
 
 .table-container td {
@@ -58,12 +58,14 @@ h2 a {
 
 .table-container {
 	  text-align: left;
-	  overflow: hidden;
-	  width: 80%;
+	  /* overflow: hidden; */
+	  width: 1400px;
 	  margin: 0 auto;
     display: table;
-  padding: 0 0 8em 0;
-  margin-top: 50px;
+    /* padding: 0 0 8em 0; */
+    overflow:scroll;
+    overflow-x:hidden;
+  
 }
 
 .table-container td, .table-container th {
@@ -112,4 +114,8 @@ h2 a {
 @media (max-width: 800px) {
 .table-container td:nth-child(4),
 .table-container th:nth-child(4) { display: none; }
+}
+
+tr {
+  height: 100px;
 }

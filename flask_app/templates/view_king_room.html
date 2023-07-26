@@ -13,10 +13,12 @@
 <head>
    <link rel="stylesheet" type="text/css" href = "{{ url_for('static', filename='css/individual_rooms.css') }}">
 </head>
-<div class="page_controller">
+<div class=>
    <div class="room_container">
       <div class="room_img">
-         <figure> <img src="{{ url_for('static', filename='images/king_bed.jpg') }}"></figure>
+         <!-- <figure>  -->
+            <img class="custom-room-image" src="{{ url_for('static', filename='images/king_bed.jpg') }}">
+         <!-- </figure> -->
       </div>
       <div class="div3">
          <div class="row">
@@ -24,7 +26,7 @@
                <div class="book_room">
                   <div class="room_description">
                      <h3 class="room_title">Luxe King Haven</h3>
-                     <span>Room Description</span>
+                     <span class="description-text">Room Description</span>
                      <p class="description_p">Welcome to our magnificent rooftop hotel king room, where regal comfort awaits you at the pinnacle of luxury. Step into a world of refined elegance as you enter this meticulously designed space, crafted to provide an exceptional stay above the bustling cityscape. The king room is adorned with tasteful decor and features a spacious layout that exudes sophistication. The centerpiece of the room is the luxurious king-size bed, adorned with premium linens and an array of plump pillows, promising a restful and rejuvenating sleep. The elegant design elements, from the stylish furnishings to the thoughtfully chosen artwork, create an ambiance of timeless charm and tranquility.</p>
 
                      <p class="description_p"> The king room is equipped with modern amenities to enhance your stay. Stay connected with high-speed internet access, catch up on your favorite shows on the flat-screen TV, or simply unwind in the comfortable seating area. The en-suite bathroom is a sanctuary of relaxation, featuring sleek fixtures, a walk-in rain shower, and luxurious bath amenities. Immerse yourself in a moment of indulgence, whether refreshing after a long day of exploration or preparing for an evening of relaxation. As a guest of our rooftop hotel, you'll also have access to exclusive privileges, including a rooftop lounge and bar, where you can savor delightful cuisine and handcrafted cocktails while enjoying breathtaking views of the city. Experience the epitome of luxury and comfort in our rooftop hotel king room, where every detail is meticulously designed to create an unforgettable stay. </p>
@@ -34,4 +36,4 @@
          </div>
       </div>
    </div>
-{% endblock %}
+{%endblock%}

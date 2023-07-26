@@ -13,10 +13,12 @@
 <head>
    <link rel="stylesheet" href="{{ url_for('static', filename='css/individual_rooms.css') }}">
 </head>
-<div class="page_controller">
+<div class=>
    <div class="room_container">
       <div class="room_img">
-         <figure> <img src="{{ url_for('static', filename='images/suite_3.png') }}" alt="suite_room"> </figure>
+         <!-- <figure>  -->
+            <img class="custom-room-image" src="{{ url_for('static', filename='images/suite_3.png') }}" alt="suite_room"> 
+         <!-- </figure> -->
       </div>
       <div class="div3">
          <div class="row">
@@ -24,7 +26,7 @@
                <div class="book_room">
                   <div class="room_description">
                      <h3 class="room_title">The Royal Splendor </h3>
-                     <span>Room Description</span>
+                     <span class="description-text">Room Description</span>
                      <p class="description_p">Welcome to our stunning rooftop hotel suite, where luxury and elegance converge high above the cityscape. Step into a world of opulence as you enter this meticulously designed space, thoughtfully curated to provide an unforgettable experience. The suite boasts a spacious and exquisitely furnished living area, complete with floor-to-ceiling windows that offer breathtaking panoramic views of the surrounding skyline. Sink into the plush seating, adorned with sumptuous fabrics, and immerse yourself in the tranquility of this elevated sanctuary.</p>
 
                      <p class="description_p"> Adjacent to the living area, a private bedroom awaits, featuring a luxurious king-size bed adorned with high-thread-count linens and an array of plump pillows, promising a restful and rejuvenating sleep. The design aesthetic is a harmonious blend of sophistication and comfort, with elegant furnishings and carefully selected artwork adorning the walls. The en-suite bathroom is a haven of relaxation, boasting modern fixtures, a spacious walk-in shower, and a deep soaking tub, providing the perfect setting to unwind and pamper yourself after a day of exploration.  </p>
@@ -34,7 +36,7 @@
          </div>
       </div>
    </div>
-   <div class="booking_ocline">
+   <div class="booking_ocline calendar">
       <div class="container">
          <div class="row">
             <div class="col-md-5">
@@ -45,23 +47,23 @@
                         <div class="col-md-12">
                            <span>Arrival</span>
                            <img class="date_cua" src="{{ url_for('static', filename='images/date.png') }}">
-                           <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="arrival_date" value="{{reservation.arrival_date}}">
+                           <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="arrival_date">
                         </div>
                         <div class="col-md-12">
                            <span>Departure</span>
                            <img class="date_cua" src="{{ url_for('static', filename='images/date.png') }}">
-                           <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="departure_date" value="{{reservation.departure_date}}">
+                           <input class="online_book" placeholder="dd/mm/yyyy" type="date" name="departure_date">
                         </div>
                         <div class="col-md-12">
                            <span>Number of Guests</span>
                            <img class="date_cua" src="{{ url_for('static', filename='images/date.png') }}">
-                           <input class="online_book" placeholder="1 - 4" type="number" max="4" min="0" name="number_of_people" value="{{reservation.number_of_people}}">
+                           <input class="online_book" placeholder="1 - 4" type="number" max="4" min="0" value="0"  name="number_of_people">
                         </div>
-                        <input type="hidden" name="user_id" value="{{user_id}}">
+                        <input type="hidden" name="user_id" value="{{user.id}}">
                         <input type="hidden" name="room_name" value="The Royal Splendor">
                         <div class="col-md-12">
                         {%if "user_id" in session %}
-                           <button type="submit" class="book_btn">Update Now</button>
+                           <button type="submit" class="book_btn">Book Now</button>
                         {%else%}
                            <p class="text-white text"><a href="/login" class=" link-text">Log in</a> to book a room</p>
                         {%endif%}

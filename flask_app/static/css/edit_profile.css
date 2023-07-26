@@ -5,8 +5,8 @@ body {
     }
 
 .edit_profile_main_container{
+    height: 90vh;
     display: flex;
-    padding: 5px;
     justify-content: center;
     align-items: center;
 }

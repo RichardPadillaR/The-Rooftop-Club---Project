@@ -156,8 +156,13 @@ a,
 }
 
 img {
+     /* width: 100%; */
+     /* height: 1000px; */
+     max-width: 100%;
+}
+
+#containerId img {
      width: 100%;
-     height: auto;
 }
 
 :focus {
@@ -285,14 +290,10 @@ button {
      border-bottom: #fe0000 solid 3px;
 }
 
-.navbar-expand-md .navbar-nav {
-     padding-right: 10px;
-}
-
 .header {
      width: 100%;
      height: 86px;
-     padding: 15px 0px 15px 0px;
+     padding: 0px;
      background: #fff;
 }
 
@@ -320,7 +321,7 @@ button {
      /**position: absolute;**/
      width: 100%;
      top: 50%;
-     transform: translateY(-240%);
+     transform: translateY(-250%);
 }
 
 .book_room {
@@ -372,7 +373,7 @@ button {
      width: 100%;
      margin: 0 auto;
      padding: 10px 0;
-     padding-top: 15px;
+     padding: 15px 0px;
      border-radius: 50px;
      color: #fff;
      font-size: 20px;
@@ -402,7 +403,7 @@ button {
 
 .titlepage {
      text-align: center;
-     padding-bottom: 40px;
+     padding-bottom: 20px;
 }
 
 .titlepage h2 {
@@ -715,7 +716,6 @@ button {
 }
 
 .main_form .send_btn {
-     margin-bottom: 20px;
      font-size: 22px;
      transition: ease-in all 0.5s;
      background-color: #000000;
@@ -962,6 +962,12 @@ line-height: 35px;
      overflow: hidden;
 }
 
+.hotel-logo-div {
+     width: 100px;
+     height: 100%;
+     display: flex;
+}
+
 .profile-pic-div img {
      width: 100%;
      height: 100%;
@@ -969,12 +975,10 @@ line-height: 35px;
 }
 
 .header {
-     background-color:#0f1521;
+     background-color: black;
 }
 
 .form-content-holder{
-
-     height: 100vh;
      width: 100%;
 }
 
@@ -984,7 +988,11 @@ line-height: 35px;
 }
 
 .update-form {
-     width: 100%;
+width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .img-div {
@@ -1017,6 +1025,8 @@ line-height: 35px;
 .hotel-name {
      color: whitesmoke;
      padding: 0;
+     margin-left: 22px;
+     
 }
 
 .changes-div {
@@ -1024,7 +1034,7 @@ line-height: 35px;
      margin: 0 auto;
      display: flex;
      justify-content: center;
-     margin-top: 50px;
+     margin-bottom: 10px;
 }
 
 
@@ -1043,7 +1053,10 @@ line-height: 35px;
 .user_name {
      color: white;
      margin: 0 22px;
-     padding: 0;
+     padding: 0px;
+     font-size: 16px;
+     text-transform: uppercase;
+
 }
 
 .nav-row {
@@ -1051,7 +1064,9 @@ line-height: 35px;
      flex-wrap: wrap;
      margin-right: -15px;
      margin-left: -15px;
-     justify-content: space-around;
+     justify-content: space-between;
+     padding: 0px 50px;
+     height: 100%;
 }
 
 .navigation .navbar-nav {
@@ -1065,8 +1080,136 @@ align-items: center;
      justify-content: center;
      align-items: center;
 }
+
+
+
+.make-a-reservation-div {
+     display: flex;
+     width: 100%;
+     justify-content: center;
+     align-items: center;
+}
+
+.form-size-div {
+     background-color: #000000c7;
+     padding: 20px;
+     border-left: #ff0909 solid 5px;
+}
+
+.reservation-header {
+     display: inline;
+     text-align: center;
+}
+
+.reservation-header-div {
+     display: flex;
+     margin-top: 20px;
+     margin-bottom: 20px;
+     justify-content: center;
+}
+
+.reservation-div {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
 .reservation-table-div {
-     height:800px;
+     height:700px;
      overflow:scroll;
      overflow-x:hidden;
 }
+
+.schedule-reservation-text {
+     color: black;
+     font-size: 24px;
+}
+
+.schedule-reservation-link {
+     text-decoration: underline;
+     color: royalblue;
+}
+
+.make-a-reservation-div {
+     margin-top: 20px;
+     margin-bottom: 20px;
+}
+
+.carousel-indicators li:hover {
+cursor: pointer;
+}
+
+.table-data {
+     height: 20px;
+}
+
+tr {
+     height: 0px;
+}
+
+
+.all-rooms {
+     width: 100%;
+     height: 200px;
+}
+
+.four-rooms {
+     height: 650px;
+     margin-top: 20px;
+} 
+
+.room {
+     height: 100%;
+}
+
+.first-slide, .second-slide, .third-slide {
+     width: 100%;
+}
+
+.description-text {
+     margin-left: 10px;
+     font-size: 20px;
+}
+
+.calendar {
+     width: 100%;
+     top: 50%;
+     transform: translateY(-170%);
+}
+
+.custom-room-image {
+     height: 100%;
+     width: 100%;
+}
+
+.about-us-text {
+     font-size: 20px;
+     line-height: 40px;
+}
+
+.about-us-header {
+     font-size: 28px;
+}
+
+.about-us-image:hover {
+     cursor: pointer;
+}
+
+.footer-container {
+     display: flex;
+     justify-content: space-evenly;
+}
+
+.logo-content {
+     display: flex;
+}
+
+.logo-img {
+     height: 100%;
+}
+
+.navigation-parent-div {
+     display: flex;
+     align-items: center;
+}
+

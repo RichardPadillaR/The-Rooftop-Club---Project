@@ -29,7 +29,7 @@ class Reservations:
 
     @classmethod
     def update_reservation(cls, form_dict, reservation_id ):
-        query = "UPDATE reservations_date SET arrival_date = %(arrival_date)s, departure_date = %(departure_date)s, room_name = %(room_name)s, number_of_people = %(number_of_people)s WHERE reservations_date.id = %(id)s"
+        query = "UPDATE reservations_date SET arrival_date = %(arrival_date)s, departure_date = %(departure_date)s, room_name = %(room_name)s, number_of_people = %(number_of_people)s, user_id = %(user_id)s WHERE reservations_date.id = %(id)s"
         new_form_data = {
             "arrival_date": form_dict["arrival_date"],
             "departure_date": form_dict["departure_date"],
@@ -54,12 +54,12 @@ class Reservations:
     def validate_reservation(reservation_dict):
         is_valid = True
         if len(reservation_dict["arrival_date"]) == 0:
-            flash("Please select a Arrival Date", "room")
+            flash("Please select an arrival date", "room")
             is_valid = False
         if len(reservation_dict["departure_date"]) == 0:
-            flash("Please select a Departure Date", "room")
+            flash("Please select an departure_date", "room")
             is_valid = False
         if int(reservation_dict["number_of_people"]) == 0:
-            flash("Please provide the number of people for this reservation", "room")
+            flash("please provide the number of people for this reservation", "room")
             is_valid = False
         return is_valid
